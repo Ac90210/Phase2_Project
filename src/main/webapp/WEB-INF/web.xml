@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>com.servlets.Login</servlet-class>
+  </servlet>
+   <servlet>
+  	<servlet-name>AddCls</servlet-name>
+  	<display-name>AddCls</display-name>
+  	<description></description>
+  	<servlet-class>com.servlets.AddCls</servlet-class>
+  </servlet>
+   <servlet>
+  	<servlet-name>AddSbj</servlet-name>
+  	<display-name>AddSbj</display-name>
+  	<description></description>
+  	<servlet-class>com.servlets.AddSbj</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddTcher</servlet-name>
+  	<display-name>AddTcher</display-name>
+  	<description></description>
+  	<servlet-class>com.servlets.AddTcher</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddStd</servlet-name>
+  	<display-name>AddStd</display-name>
+  	<description></description>
+  	<servlet-class>com.servlets.AddStd</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>AddCls</servlet-name>
+  	<url-pattern>/AddCls</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddSbj</servlet-name>
+  	<url-pattern>/AddSbj</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>AddTcher</servlet-name>
+  	<url-pattern>/AddTcher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddStd</servlet-name>
+  	<url-pattern>/AddStd</url-pattern>
+  </servlet-mapping> 
+</web-app>
