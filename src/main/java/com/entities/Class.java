@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Subject_Class_Mapping")
+@Table(name="Class")
 public class Class {
 	
 	@Id

@@ -22,11 +22,11 @@ public class Subject_Class_MappingService {
 		sfact = DbConnection.getConnection();
 	}
 	
-	public void AddSubj_Cls_Mapp(Subject_Class_Mapping cl)
+	public void AddSubj_Cls_Mapp(Subject_Class_Mapping mapping)
 	{
 		Session session = sfact.openSession();
 		Transaction trans = session.beginTransaction();
-		session.persist(cl);
+		session.persist(mapping);
 		trans.commit();
 	}
 	
@@ -38,10 +38,10 @@ public class Subject_Class_MappingService {
 		return classlist;
 	}
 	
-	public Class SearchClass(int classID)
+	public Subject_Class_Mapping SearchSubject_Class_Mapping(int id)
 	{
 		Session session = sfact.openSession();
-		Class cl = session.get(Class.class, classID);
+		Subject_Class_Mapping cl = session.get(Subject_Class_Mapping.class, id);
 		return cl;
 	}
 
@@ -61,11 +61,11 @@ public class Subject_Class_MappingService {
 		return std;
 	}
 	
-	public void DeleteClass(int classID)
+	public void DeleteSubject_Class_Mapping(int id)
 	{
 		Session session = sfact.openSession();
 		Transaction t = session.beginTransaction();
-		Class cl = this.SearchClass(classID);
+		Subject_Class_Mapping cl = this.SearchSubject_Class_Mapping(id);
 		session.delete(cl);
 		t.commit();
 	}

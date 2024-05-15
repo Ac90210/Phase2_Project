@@ -17,11 +17,11 @@ public class Subject_Class_Mapping {
 
 	    @ManyToOne
 	    @JoinColumn(name = "subjectID")
-	    private int subjectID;
+	    private Subject subject;
 
 	    @ManyToOne
 	    @JoinColumn(name = "classID")
-	    private int classID;
+	    private Class class1;
 
 		public int getId() {
 			return id;
@@ -31,21 +31,23 @@ public class Subject_Class_Mapping {
 			this.id = id;
 		}
 
-		public int getSubjectID() {
-			return subjectID;
+		public Subject getSubject() {
+			return subject;
 		}
 
-		public void setSubjectID(int subjectID) {
-			this.subjectID = subjectID;
+		public void setSubject(Subject subject) {
+			this.subject = subject;
 		}
 
-		public int getClassID() {
-			return classID;
+		public Class getClass1() {
+			return class1;
 		}
 
-		public void setClassID(int classID) {
-			this.classID = classID;
+		public void setClass1(Class class1) {
+			this.class1 = class1;
 		}
+
+		
 
 		
 }

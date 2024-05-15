@@ -24,13 +24,13 @@ import jakarta.persistence.TypedQuery;
 /**
  * Servlet implementation class Subj_Cls_Mapp
  */
-public class Subj_Cls_Mapp extends HttpServlet {
+public class Subj_Cls_Tcher_Mapp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Subj_Cls_Mapp() {
+    public Subj_Cls_Tcher_Mapp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,9 +43,11 @@ public class Subj_Cls_Mapp extends HttpServlet {
 		
 		 int subjectID = Integer.parseInt(request.getParameter("subjectID"));
 	     int classID = Integer.parseInt(request.getParameter("classID"));
+	     int teacherID = Integer.parseInt(request.getParameter("teacherID"));
 	     
 	     String className = request.getParameter("ddlCname");
 	     String subjectName = request.getParameter("ddlSname");
+	     String teacherName = request.getParameter("ddlTname");
 		
 	     Class classtbl = new Class();
 		 classtbl.setClassName(className);
@@ -53,10 +55,14 @@ public class Subj_Cls_Mapp extends HttpServlet {
 		 Subject subtbl = new Subject();
 	     subtbl.setSubjectName(subjectName);
 	     
+	     Subject tchtbl = new Subject();
+	     //tchtbl.setTeacherName(teacherName);
+	     
 		
 		Subject_Class_Mapping ss = new Subject_Class_Mapping();
 		//ss.setSubject(new Subject);
 		//ss.setClass1(new Class);
+		//ss.setTeacher(new Teacher);
 		ss.setId(classID);
 		
 		Subject_Class_MappingService scm = new Subject_Class_MappingService();

@@ -9,8 +9,6 @@
     <%@ page import="com.service.*" %>
     <%@ page import="java.util.*" %>
     
-    
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,35 +17,38 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-<jsp:include page="Links.jsp" />
+<jsp:include page="Links.jsp" />  
+<div class="container-fluid">
 <%
 if(session.getAttribute("admn")!=null)
 {
 %>
-<h3 style="text-align: center;" class="text-info">Add Class</h3>
+<h3 style="text-align: center;" class="text-info">Add Subject</h3>
 	<hr />
 	<div class="container-fluid">
 <div class="row">
-<form method="post" action="AddCls">
+<form method="post" action="AddSbj">
 <div class="card">
 				<div class="card-header">
-					<b style="text-align: center;"> Please add classes below: </b>
+					<b style="text-align: center;"> Please add subjects below: </b>
 				</div>
 				<div class="card-body">
 	<p style="text-align: center;">
-		<input type="text"  name="txtCname"  class="form-control" placeholder="Class Name" required />
-		     <div class="row">
+		<input type="text"  name="txtSbjname" class="form-control" placeholder="Subject Name" required />
+		<br /><br />
+		
+		<div class="row">
 						<div class="col-lg-12"  style="text-align: center;">
 					<input type="submit"  value="Add"  class="btn btn-info" />
 					<input type="reset"  value="Clear"  class="btn btn-danger" />							
 						</div>
 					</div>
 	</p>
-</div>
+	</div>
 	</div>
 </form>
 </div>
+	</div>
 	</div>
 <%
 }
@@ -59,12 +60,13 @@ else
 
 if(session.getAttribute("admn")!=null)
 {
-	//ClassService cs = new ClassService();
-	//List<Class> sbj = cs.ShowAll();
-    //pageContext.setAttribute("sinfo", sbj);
+	SubjectService ss = new SubjectService();
+	List<Subject> sbj = ss.ShowAll();
+    pageContext.setAttribute("sinfo", sbj);
 %>
+
 <hr>
-<h4 style="text-align: center;" class="text-info">Classes</h4>
+<h4 style="text-align: center;" class="text-info">Subjects</h4>
 <hr />
 <div class="container-fluid">
 <div class="row">
@@ -77,36 +79,35 @@ if(session.getAttribute("admn")!=null)
 				<div class="container mt-3">
 <table class="table" width="100%" border="1">
 <tr>
-<th>Class Number</th>
-<th>Class Name</th>
+<th>Subject Number</th>
+<th>Subject Name</th>
 </tr>
 
 <c:forEach var="std"  items="${sinfo }">
 
-<c:url var="deletecourse" value="DeleteStd.jsp">
-	<c:param name="classID" value="${std.classID }"/>
+<c:url var="deletesubject" value="DeleteSubject.jsp">
+	<c:param name="subjectID" value="${std.subjectID }"/>
 </c:url>
 
 <tr>
 	<td>
-		<c:out value="${std.classID }" />
+		<c:out value="${std.subjectID }" />
 	</td>
 	<td>
-		<c:out value="${std.className }" />
+		<c:out value="${std.subjectName }" />
 	</td>
 	<td>
-		<a href="${deleteclass }">Delete</a>
+		<a href="${deletesubject }">Delete</a>
 	</td>
 
 </tr>
 </c:forEach>
-</table>
 
+</table>
 <%
 	}
 	else
 		response.sendRedirect("Login.jsp");
-
 %>
 </div>
 </div>
